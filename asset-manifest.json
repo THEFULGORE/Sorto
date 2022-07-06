@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Sorto/static/css/main.3083ce87.css",
+    "main.js": "/Sorto/static/js/main.eda62ce1.js",
+    "index.html": "/Sorto/index.html",
+    "main.3083ce87.css.map": "/Sorto/static/css/main.3083ce87.css.map",
+    "main.eda62ce1.js.map": "/Sorto/static/js/main.eda62ce1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3083ce87.css",
+    "static/js/main.eda62ce1.js"
+  ]
+}
