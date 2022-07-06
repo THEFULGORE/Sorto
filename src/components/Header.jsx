@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import { resetArrAC, setSizeOfArrAC, setSpeedAC } from "../redux/reducer";
 import { useDispatch, useSelector } from "react-redux";
-import "./Header.scss";
 import { resetArr } from "../utils/reset";
-import { bubbleSort, shakerSort } from "../utils/sortingAlgs";
+import {
+  bubbleSort,
+  heapSort,
+  insertionSort,
+  mergeSort,
+  quickSort,
+  radixSort,
+  shakerSort,
+  shellSort,
+} from "../utils/sortingAlgs";
 import { MAIN_COLOR } from "../utils/consts";
+import "./Header.scss";
 
 const Header = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -39,6 +48,23 @@ const Header = () => {
       case "shaker":
         shakerSort(array, speed, setIsRunning);
         break;
+      case "insertion":
+        insertionSort(array, speed, setIsRunning);
+        break;
+      case "quick":
+        quickSort(array, speed, setIsRunning);
+        break;
+      case "merge":
+        mergeSort(array, speed, setIsRunning);
+        break;
+      case "heap":
+        heapSort(array, speed, setIsRunning);
+        break;
+      case "radix":
+        radixSort(array, speed, setIsRunning);
+        break;
+      case "shell":
+        shellSort(array, speed, setIsRunning);
     }
   };
 
@@ -72,7 +98,7 @@ const Header = () => {
               type="range"
               className="sliders__input"
               min={20}
-              max={200}
+              max={500}
               value={sizeOfArray}
               name="size"
               onChange={handleSizeChange}
@@ -97,12 +123,48 @@ const Header = () => {
         >
           Shaker sort
         </button>
-        <button className="sort-button">Insertion sort</button>
-        <button className="sort-button">Quick sort</button>
-        <button className="sort-button">Merge sort</button>
-        <button className="sort-button">Heap sort</button>
-        <button className="sort-button">Radix sort</button>
-        <button className="sort-button">Shell sort</button>
+        <button
+          className="sort-button"
+          onClick={() => sortAlg("insertion")}
+          disabled={isRunning}
+        >
+          Insertion sort
+        </button>
+        <button
+          className="sort-button"
+          onClick={() => sortAlg("quick")}
+          disabled={isRunning}
+        >
+          Quick sort
+        </button>
+        <button
+          className="sort-button"
+          onClick={() => sortAlg("merge")}
+          disabled={isRunning}
+        >
+          Merge sort
+        </button>
+        <button
+          className="sort-button"
+          onClick={() => sortAlg("heap")}
+          disabled={isRunning}
+        >
+          Heap sort
+        </button>
+        <button
+          className="sort-button"
+          onClick={() => sortAlg("radix")}
+          disabled={isRunning}
+        >
+          Radix sort
+        </button>
+        <button
+          className="sort-button"
+          onClick={() => sortAlg("shell")}
+          disabled={isRunning}
+        >
+          Shell sort
+        </button>
       </div>
     </div>
   );
